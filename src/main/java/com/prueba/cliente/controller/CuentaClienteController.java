@@ -32,8 +32,8 @@ public class CuentaClienteController {
     @Autowired
     private ICuentaClienteService cuentaClienteService;
     
-    //@GetMapping
-    @RequestMapping(value = "/", method = RequestMethod.GET, produces = { "application/json" })
+    @GetMapping
+    //@RequestMapping(value = "/", method = RequestMethod.GET, produces = { "application/json" })
     //@Produces("application/json")
     public ResponseEntity<List> getAllCuentas() {
         return new ResponseEntity<List>(cuentaClienteService.getAllCuentas(), HttpStatus.OK);
@@ -46,9 +46,9 @@ public class CuentaClienteController {
     }
     
     
-    //@PutMapping("/{id}")
+    @PutMapping("/{id}")
     //@Produces("application/json")
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = { "application/json" })
+    //@RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = { "application/json" })
     public ResponseEntity updateCuenta(@PathVariable(value = "id") Long cuentaId, @RequestBody CuentasDeClientes cuenta) {
         try {
             return new ResponseEntity(cuentaClienteService.updateCuenta(cuentaId, cuenta), HttpStatus.OK);
